@@ -25,21 +25,15 @@ export SVN_EDITOR=${EDITOR}
 export PATH=~/bin:${PATH}:/sbin:/usr/sbin:/usr/local/nagios/libexec:/opt/nmap/bin:~/android/tools:/opt/jruby/bin
 export PS1="[\u@\h]:\w \$ "
 export CDPATH=".:~"
-export MOZ_DISABLE_PANGO=1
 
 alias l='ls -alF'
 alias ll='ls -alF'
 alias la='ls -Fa'
 alias ld='ls -al -d * | egrep "^d"' # only subdirectories
 alias lt='ls -alt | head -20' # recently changed files
-
 alias watchtcp='watch -n 1 "sudo netstat -tpanl | grep ESTABLISHED"'
-alias apt-get="sudo apt-get -y"
 alias rpmqa='rpm -qa --queryformat "%{NAME}-%{VERSION}.%{RELEASE} (%{ARCH})\n"'
-alias ibrpms="rpm -qa --queryformat='%{NAME}-%{VERSION} %{VENDOR}\n' | \
-    grep 'Internet Broadcasting' | awk '{print \$1}'"
 export TODAY=$(date +%d-%b-%Y)
-alias phonehome="nohup ssh -f -N -R 10000:localhost:22 blutgens@us-admins.com"
 alias unix2dos="perl -i -pe 's/\r//g'"
 alias dos2unix="perl -i -pe 's/\n/\r\n/'"
 alias ssh="ssh -X -A -t"
@@ -65,10 +59,7 @@ elif [ $(uname) == "SunOS" ] ; then
 fi
 alias cd..='cd ..'
 alias servethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
-
-
 alias change_date='date +"%a %b %d %Y"'
-
 alias rot13='perl -pe "y/n-za-mN-ZA-M/a-zA-Z/"'
 alias scramble='perl -Mlocale -pe "s|\B\w+\B|join q(),sort{rand 2}$&=~/./g|ge"'
 alias base64enc='perl -MMIME::Base64 -e "print encode_base64(join(q(),<>),q())"'
@@ -76,10 +67,6 @@ alias base64dec='perl -MMIME::Base64 -e "print decode_base64(join(q(),<>))"'
 alias pmver="perl -le '\$m = shift; eval qq(require \$m) or die qq(module \"\$m\" is not installed\\n); print \$m->VERSION'"
 
 
-#if [ $(hostname -s) == "splunk" ] ; then
-#    export SPLUNK_HOME=/opt/splunk
-#    export PATH="${SPLUNK_HOME}/bin:${PATH}"
-#fi
 
 
 # handy du
@@ -91,20 +78,8 @@ lalias() {
         grep -i --color $1 /etc/mail/$i
     done
 }
-ppalias() {
-      egrep ^${1} /etc/mail/aliases | tr ',' '\n' | \
-           sed 's/^[ \t]*//;s/[ \t]*$//'
-       }
 
-
-cbust() {
-    SEED="$$`date +%Y%m%e%k%M%S%N`"
-    SEED=`echo $SEED | md5sum`
-    CACHEBUSTER="${SEED:2:18}"
-    GET -Sed ${1}?qs=${CACHEBUSTER}
-}
     
-# This one's pretty fucking dumb, but i'm keeping it so fuck off
 numlines () { 
     awk '{print NR": "$0 }' < $1 
 }
@@ -187,27 +162,3 @@ nuke_ssh_key() {
 
 alias bbq="netstat -ntu | awk '{print $5}' | grep -e ^[0-9] | cut -d: -f1 | sort | uniq -c | sort -n"
 
-show_referrers() {
-    # this shows all referrers sorted by top num of referrals 
-    # needs an apache log as an argument
-    if [ $# -ne 1 ] ; then
-        echo "show_referrers <apache logfile>"
-     else 
-         echo "All referrers in $1 are:"
-        grep -vE "boomshanka" $1 | awk '{print $11}' \
-            | sort | uniq -c | sort -rn
-    fi
-}
-
-show_all_requests() {
-    # this shows a list of all requests sorted by most requested
-    # You'll want to pipe this into less or head....
-    # needs an apache log as an argument
-    if [ $# -ne 1 ] ; then
-        echo "show_all_requests <apache logfile>"
-    else
-        echo "All requests in $1 are:"
-        grep -vE "boomshanka" $1| awk '{print $7}' | \
-            sed 's/\/$//g' | sort | uniq -c | sort -rn
-    fi
-}
