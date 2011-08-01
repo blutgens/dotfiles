@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# IEs 4 Linux script to run ie6 - http://tatanka.com.br/ies4linux
+
+debugPipe() {
+	while read line; do [ "$DEBUG" = "true" ] && echo $line; done
+}
+
+cd
+export WINEPREFIX="/home/blutgens/.ies4linux/ie6"
+
+if [ -f "/home/blutgens/.ies4linux/ie6/.firstrun" ]; then
+        rm "/home/blutgens/.ies4linux/ie6/.firstrun"
+        ( wine "/home/blutgens/.ies4linux/ie6/drive_c/Program Files/Internet Explorer/IEXPLORE.EXE" "http://www.tatanka.com.br/ies4linux/startpage?lang=enUS&ieversion=ie6&firstrun=true" 2>&1 ) | debugPipe
+else
+        ( wine "/home/blutgens/.ies4linux/ie6/drive_c/Program Files/Internet Explorer/IEXPLORE.EXE" "$@" 2>&1 ) | debugPipe
+fi

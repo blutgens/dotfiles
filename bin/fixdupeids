@@ -1,0 +1,34 @@
+#! /usr/local/bin/python2.6
+
+from subprocess import (
+    Popen,
+    PIPE,
+    )
+import time
+from datetime import datetime
+from pprint import pformat
+from smtplib import SMTP
+
+_DB4 = "holmesdb4.mn.visi.com"
+
+databases = [
+  ("IFMA FMP", ["-h", "localhost", "-p", "5433", "ifmafmp10"]),
+  ("IFMA SFP", ["-h", "localhost", "-p", "5433", "ifmasfp10"]),
+  ("IIA CIA30", ["-h", _DB4, "-p", "5432", "iiacia30v2"]),
+  ("AFP Treasury", ["-h", "localhost", "-p", "5432", "afptreasury30"]),
+  ("SHRM EHRM", ["-h", "localhost", "-p", "9999", "shrmehrm"]),
+  ]
+
+PSQL = ["/usr/local/pgsql/bin/psql", "-U", "postgres"]
+
+SQL_FIX = ["-c", "SELECT fix_duplicate_ids();"]
+
+data = ['']
+
+for nm, db in databases:
+    data.extend([(' ' + nm + ' ').center(60, '*'), ''])
+    p1 = Popen(PSQL + db + SQL_FIX, stdout=PIPE)
+    data.extend(p1.communicate()[0].splitlines())
+    data.append('')
+
+#print pformat(data)

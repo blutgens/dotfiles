@@ -1,0 +1,64 @@
+#! /usr/local/bin/python2.6
+
+from subprocess import (
+    Popen,
+    PIPE,
+    )
+import time
+from datetime import datetime
+from pprint import pformat
+from smtplib import SMTP
+
+_DB4 = "holmesdb4.mn.visi.com"
+
+databases = [
+  ("IFMA FMP", ["-h", "localhost", "-p", "5433", "ifmafmp10"]),
+  ("IFMA SFP", ["-h", "localhost", "-p", "5433", "ifmasfp10"]),
+  ("IIA CIA30", ["-h", _DB4, "-p", "5432", "iiacia30v2"]),
+  ("AFP Treasury", ["-h", "localhost", "-p", "5432", "afptreasury30"]),
+  ("SHRM EHRM", ["-h", "localhost", "-p", "9999", "shrmehrm"]),
+  ]
+
+sendto = [
+    'bills@holmescorp.com',
+    'danielb@holmescorp.com',
+    'guentherw@holmescorp.com',
+    'benl@holmescorp.com',
+    ]
+
+msgt = """\
+From: DB results monitor <bills@holmescorp.com>\r
+To: %(tolist)s\r
+Subject: Risky results / duplicate ids\r
+\r
+%(data)s\r
+\r
+\r
+"""
+
+PSQL = ["/usr/local/pgsql/bin/psql", "-U", "postgres"]
+
+SQL_RISKY = ["-c", "SELECT * FROM risky_results;"]
+SQL_DUPES = ["-c", "SELECT * FROM duplicate_ids;"]
+
+data = ['']
+
+for nm, db in databases:
+    data.extend([(' ' + nm + ' ').center(60, '*'), ''])
+    p1 = Popen(PSQL + db + SQL_RISKY, stdout=PIPE)
+    data.extend(p1.communicate()[0].splitlines())
+    data.append('')
+    p2 = Popen(PSQL + db + SQL_DUPES, stdout=PIPE)
+    data.extend(p2.communicate()[0].splitlines())
+    data.append('')
+
+params = {
+    'data': '\r\n'.join(data),
+    'tolist': ', '.join(sendto),
+    }
+msg = msgt % params
+
+server = SMTP()
+server.connect()
+server.sendmail('bills@holmescorp.com', sendto, msg)
+server.quit()

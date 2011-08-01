@@ -1,0 +1,6 @@
+#!/bin/bash
+sudo qemu-kvm -boot c -hda ~/srv/xen/rhel4.qcow \
+    -m 256 -M pc -no-acpi -usb \
+    -net user,vlan=0 -net nic,vlan=0 -smb /home/a1b1mzz \
+    -redir tcp:2222::22 \
+    -serial file:/tmp/qemu.log 
