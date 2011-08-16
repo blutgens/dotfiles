@@ -3,13 +3,13 @@
 "------------------------------------------------------------------------
 if &term =~ "xterm"
 	set t_Co=256
-    colorscheme dante
+    colorscheme aqua
 endif
 if &term =~ "linux"
 	unset t_Co
-	colorscheme default
+	colorscheme aqua
 endif
-	
+
 "
 "------------------------------------------------------------------------
 " Use of dictionaries
