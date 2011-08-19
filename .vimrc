@@ -54,7 +54,6 @@ set backspace=2
 let loaded_matchparen = 1
 "
 
-au FileType spec map <buffer> <F5> <Plug>AddChangelogEntry
 filetype plugin indent on
 au FileType py set autoindent
 au FileType py set smartindenD_tree config
@@ -99,4 +98,7 @@ imap  <silent> <s-tab>  <Esc>:if &modifiable && !&readonly &&
 nmap  <C-q>    :wqa<CR>
 set wildmenu
 set wildignore=*.bak,*.o,*.e,*~
+set number
+nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
 "
