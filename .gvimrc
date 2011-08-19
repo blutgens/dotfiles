@@ -1,3 +1,3 @@
-set guifont=Terminus\ 7
-colorscheme darkblue
+set guifont=Monospace\ 9
+colorscheme desert
 set background=dark
