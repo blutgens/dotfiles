@@ -1,4 +1,4 @@
-#! /usr/local/bin/python2.6
+#! /usr/bin/python2.6
 import ConfigParser
 import re
 import os
@@ -6,7 +6,7 @@ from subprocess import Popen, PIPE
 from os import path
 from optparse import OptionParser
 
-pgbin = '/usr/local/pgsql/bin'
+pgbin = '/usr/bin/psql'
 
 URL_RE = re.compile(r"postgresql://(?P<user>[^@]+)@(?P<host>[^}]+}):(?P<port>.+)")
 RELLIST = ' '.join((' '.join("""\
