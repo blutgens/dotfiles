@@ -61,6 +61,12 @@ let NERDTreeChDirMode=2
 let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
+function! StartUp()
+    if 0 == argc()
+        NERDTree
+    end
+endfunction
+au VimEnter * call StartUp()
 map <F3> :NERDTreeToggle<CR>
 
 " Syntax for multiple tag files are
@@ -102,3 +108,10 @@ set number
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
 "
+noremap <F5> <ESC>:w<CR>:silent execute "!python %"<CR><CR>
+
+au BufEnter *.py if getline(1) == "" | :call setline(1, "#!/usr/bin/env python") | endif
+" Automatically chmod +x Shell and Perl scripts
+au BufWritePost   *.sh              silent !chmod +x %
+au BufWritePost   *.pl              silent !chmod +x %
+au BufWritePost   *.py              silent !chmod +x %

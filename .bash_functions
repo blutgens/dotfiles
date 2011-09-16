@@ -9,6 +9,19 @@ numlines () {
     awk '{print NR": "$0 }' < $1
 }
 
+function thist
+{
+    if [[ "${HISTFILE+defined}" ]]
+    then
+        _HISTFILE="$HISTFILE"
+        unset HISTFILE
+        history -c
+    else
+        history -c
+        HISTFILE="$_HISTFILE"
+        unset _HISTFILE
+    fi
+}
 
 # For when you're on a lame ass commercial unix box w/o gnu sed
 psed () {

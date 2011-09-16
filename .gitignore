@@ -1,2 +1,4 @@
 .ssh/known_hosts
 *.pyc
+.ssh/id_rsa
+.vim/.netrwhist
