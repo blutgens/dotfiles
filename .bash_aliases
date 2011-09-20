@@ -26,6 +26,7 @@ if [ $(uname) == "Linux" ] ; then
     alias lla="ls -lah"
     alias rm="rm -v"
     alias more='less'
+    alias grep='grep --color'
 elif [ $(uname) == "SunOS" ] ; then
     alias ls="ls -F"
 fi
