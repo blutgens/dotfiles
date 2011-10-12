@@ -36,4 +36,4 @@ DIRNAME="\w"
 
 export PS1="$GREEN\u@\h:$PURPLE\$(shortpath)$RED\$(parse_git_branch)$YELLOW\$$WHITE "
 
-# set ft=bash
+# vim:set ft=sh

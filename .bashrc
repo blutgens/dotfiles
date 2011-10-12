@@ -21,6 +21,7 @@ shopt -s cdspell
 export CVS_RSH="ssh"
 export RSYNC_RSH="ssh"
 export PAGER=less
+alias man="PAGER='most -s' man"
 export EDITOR=vim
 export SVN_EDITOR=${EDITOR}
 export PATH=~/bin:${PATH}:/sbin:/usr/sbin:/usr/local/nagios/libexec::~/android/tools:/opt/jruby/bin
@@ -28,6 +29,9 @@ source ~/.bash_prompt
 export CDPATH=".:~"
 
 
+if [ -n "$DISPLAY" ]; then
+    export BROWSER=chromium
+fi
 
 
 # Keychain setup
