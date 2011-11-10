@@ -46,8 +46,9 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.dvi,.idx,.out,.toc
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
-set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\
-            \ [%l/%L\ (%p%%)
+"set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\
+"            \ [%l/%L\ %c\ (%p%%)
+set statusline=%t\ %y\ format:\ %{&ff};\ [%c,%l]
 
 
 set backspace=2
@@ -66,7 +67,7 @@ function! StartUp()
         NERDTree
     end
 endfunction
-au VimEnter * call StartUp()
+"au VimEnter * call StartUp()
 map <F3> :NERDTreeToggle<CR>
 
 " Syntax for multiple tag files are

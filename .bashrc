@@ -29,9 +29,6 @@ source ~/.bash_prompt
 export CDPATH=".:~"
 
 
-if [ -n "$DISPLAY" ]; then
-    export BROWSER=chromium
-fi
 
 
 # Keychain setup
