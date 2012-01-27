@@ -32,12 +32,12 @@ export CDPATH=".:~"
 
 
 # Keychain setup
-if [ -f ~/.ssh/id_rsa ] ; then
-    keychain --nocolor -q id_rsa
-    [ -f $HOME/.keychain/$HOSTNAME-sh ] && \
-    . $HOME/.keychain/$HOSTNAME-sh
-    [ -f $HOME/.keychain/$HOSTNAME-sh-gpg ] && \
-    . $HOME/.keychain/$HOSTNAME-sh-gpg
-fi
+#if [ -f ~/.ssh/id_rsa ] ; then
+#    keychain --nocolor -q id_rsa
+#    [ -f $HOME/.keychain/$HOSTNAME-sh ] && \
+#    . $HOME/.keychain/$HOSTNAME-sh
+#    [ -f $HOME/.keychain/$HOSTNAME-sh-gpg ] && \
+#    . $HOME/.keychain/$HOSTNAME-sh-gpg
+#fi
 
 
