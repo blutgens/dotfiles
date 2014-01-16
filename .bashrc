@@ -24,7 +24,7 @@ export PAGER=less
 #alias man="PAGER='most -s' man"
 export EDITOR=vim
 export SVN_EDITOR=${EDITOR}
-#export PATH=~/bin:${PATH}:/sbin:/usr/sbin:/usr/local/nagios/libexec::~/android/tools:/opt/jruby/bin
+export PATH=~/bin:${PATH}:/sbin:/usr/sbin:
 #source ~/.bash_prompt
 export CDPATH=".:~"
 
@@ -32,12 +32,12 @@ export CDPATH=".:~"
 
 
 # Keychain setup
-#if [ -f ~/.ssh/id_rsa ] ; then
-#    keychain --nocolor -q id_rsa
-#    [ -f $HOME/.keychain/$HOSTNAME-sh ] && \
-#    . $HOME/.keychain/$HOSTNAME-sh
-#    [ -f $HOME/.keychain/$HOSTNAME-sh-gpg ] && \
-#    . $HOME/.keychain/$HOSTNAME-sh-gpg
-#fi
+if [ -f ~/.ssh/id_rsa ] ; then
+    keychain --nocolor -q id_rsa
+    [ -f $HOME/.keychain/$HOSTNAME-sh ] && \
+    . $HOME/.keychain/$HOSTNAME-sh
+    [ -f $HOME/.keychain/$HOSTNAME-sh-gpg ] && \
+    . $HOME/.keychain/$HOSTNAME-sh-gpg
+fi
 
 
