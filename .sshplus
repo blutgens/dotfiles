@@ -1,0 +1,25 @@
+# this is a comment
+label:Commands
+CMD Terminator|terminator|-l multi
+label:SSH connections
+SSH sputnik|gnome-terminal|-x ssh sputnik
+SSH ucamprd6|gnome-terminal|-x ssh ucamprd6
+SSH ucamqa6|gnome-terminal|-x ssh ucamqa6
+SSH ucamdev6|gnome-terminal|-x ssh ucamdev6
+SSH ucamtrn6|gnome-terminal|-x ssh ucamtrn6
+SSH ucamicd1|gnome-terminal|-x ssh ucamicd1
+SSH ucamex1|gnome-terminal|-x ssh ucamex1
+SSH ucamtx1|gnome-terminal|-x ssh ucamtx1
+SSH ucuxivm1|gnome-terminal|-x ssh ucuxivm1
+SSH ucuxivm2|gnome-terminal|-x ssh ucuxivm2
+SSH ucuxign1|gnome-terminal|-x ssh ucuxign1
+SSH ucoraprd6|gnome-terminal|-x ssh ucoraprd6
+SSH ucoraqa6|gnome-terminal|-x ssh ucoraqa6
+SSH ucoradev6|gnome-terminal|-x ssh ucoradev6
+SSH ucoratrn6|gnome-terminal|-x ssh ucoratrn6
+SSH ucoraicd1|gnome-terminal|-x ssh ucoraicd1
+SSH ucoraex1|gnome-terminal|-x ssh ucoraex1
+SSH ucoratx1|gnome-terminal|-x ssh ucoratx1
+label:RDP connections
+RDP XP VM|rdesktop|-T "XP VM" -r sound:local -g 1280x800 -a 24 10.10.30.99
+

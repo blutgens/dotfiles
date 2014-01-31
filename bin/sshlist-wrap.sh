@@ -1,4 +1,4 @@
 #!/bin/bash
 while : ; do
-    /home/blutgens/misc/sshlist.py
+    /home/blutgens/misc/sshlist.py | tee ~/.sshlist.log
 done
