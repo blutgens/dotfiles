@@ -1,4 +1,3 @@
-alias pacman='sudo pacman'
 alias l='ls -alF'
 alias ll='ls -alF'
 alias la='ls -Fa'
