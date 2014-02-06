@@ -1,2 +1,4 @@
 #!/bin/bash
-xmodmap ~/.Xmodmap
+export DISPLAY=:0
+setxkbmap -option caps:none
+#xmodmap ~/.Xmodmap
