@@ -2,3 +2,4 @@
 *.pyc
 .ssh/id_rsa
 .vim/.netrwhist
+*.swp
