@@ -3,3 +3,4 @@
 .ssh/id_rsa
 .vim/.netrwhist
 *.swp
+.vim/backup
