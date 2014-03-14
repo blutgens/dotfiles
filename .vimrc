@@ -1,6 +1,11 @@
-"------------------------------------------------------------------------
-" Enable the use of the mouse for certain terminals.
-"------------------------------------------------------------------------
+if has("gui_running")
+  " GUI is running or is about to start.
+    set guifont=Monospace\ 9
+    colorscheme desert
+  set lines=48 columns=83
+endif
+
+
 if &term =~ "xterm"
 	set t_Co=256
     colorscheme molokai
