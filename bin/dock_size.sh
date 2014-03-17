@@ -9,5 +9,5 @@ elif [ $SIZE -ge 12 ]; then
         dconf  write /org/compiz/profiles/unity/plugins/unityshell/icon-size "$1"
     echo "Size is set to $SIZE"
 else
-    echo "Integers lower than 8 are ignored by unity."
+    echo "Integers lower than 12 are ignored by unity."
 fi
