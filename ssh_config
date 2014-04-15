@@ -1,0 +1,6 @@
+# SSH config file, 'man ssh_config' for more details.
+
+Host *
+    ForwardAgent yes
+    ForwardX11 yes
+    GSSAPIAuthentication no
