@@ -28,6 +28,12 @@ export PATH=~/bin:${PATH}:/sbin:/usr/sbin:
 #source ~/.bash_prompt
 export CDPATH=".:~"
 
+# GO Stuff
+export GOPATH=${HOME}/gocode
+export PATH=${PATH}:${GOPATH}/bin
+if [ ! -d ${GOPATH} ] ; then
+    mkdir -p ${GOPATH}/{bin,pkg,src}
+fi
 
 
 
