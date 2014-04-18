@@ -4,9 +4,9 @@
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
-[ -f /usr/local/nagios/bin/profile ] && . /usr/local/nagios/bin/profile
 source ~/.bash_aliases
 source ~/.bash_functions
+source ~/.bash_prompt
 
 # User specific aliases and functions
 if [[ $- != *i* ]] ; then #not interactive... don't need this file then
