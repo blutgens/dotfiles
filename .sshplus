@@ -1,6 +1,7 @@
 # this is a comment
 label:Commands
-CMD Terminator|terminator|-l multi
+Terminator|terminator|-l multi
+Gnome Terminal|gnome-terminal|
 label:SSH (HP-UX App Servers)
 SSH ucamprd6|gnome-terminal|-x ssh -X ucamprd6
 SSH ucamqa6|gnome-terminal|-x ssh -X ucamqa6

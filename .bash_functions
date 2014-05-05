@@ -57,4 +57,11 @@ compare(){
   }
 
 
-# set ft=sh:
+function nwm-fix() {
+    sudo sed -i -e 's:system-ca-certs=true:system-ca-certs=false:g' /etc/NetworkManager/system-connections/$1
+}
+
+function pingdef() {
+    ping $(ip route show |awk ' /^default/ {print $3}')
+}
+# vim:set ft=sh:
