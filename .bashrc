@@ -46,4 +46,6 @@ fi
 #    . $HOME/.keychain/$HOSTNAME-sh-gpg
 #fi
 
-
+if [ -f ~/.liquidprompt/liquidprompt ]; then
+    source ~/.liquidprompt/liquidprompt
+fi
