@@ -1,0 +1,15 @@
+export amisys="ucamprd6 ucamdev6 ucamtrn6 ucamqa6 ucamicd1 ucamex1 ucamtx1"
+export oracle="ucoraprd6 ucoradev6 
+        ucoratrn6 ucoraqa6 ucoraicd1 ucoraex1 ucoratx1"
+export ivm="ucuxivm1 ucuxivm2 uchpuxt1"
+export dr="ucamdr1 ucoradr1"
+export uc4="ucuc4appd-v ucuc4appt-v ucuc4prd-v ucuc4dbp-p ucuc4dbt-v ucuc4dbd-v"
+export allhosts="$amisys $oracle $ivm $dr $uc4"
+
+doall() {
+    for i in $allhosts ; do
+        ssh $i $2
+    done
+}
+
+# vim: set ft=sh ts=4 sw=4 tw=80 et :
