@@ -1,0 +1,4 @@
+#!/bin/bash
+postal1=`wget -qO - www.ip2location.com | grep chkWeather | grep label | grep \( | awk -F'(' '{ print $2 }' | awk -F')' '{ print $1 }'`
+curl -s  "http://weather.yahooapis.com/forecastrss?p=$postal1&u=f" -o ~/.cache/weather.xml
+exit 0

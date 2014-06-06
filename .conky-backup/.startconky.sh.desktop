@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Exec=/opt/.startconky.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_GB]=Conky
+Name=Conky
+Comment[en_GB]=
+Comment=
+Icon=/opt/.conkyapp/conky.png
