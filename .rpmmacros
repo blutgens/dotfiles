@@ -1,3 +1,3 @@
 %_query_all_fmt %%{name}-%%{version}-%%{release}.%%{arch}
-%_topdir /home/benl/rpmbuild
-%packager Ben Lutgens <benl@holmescorp.com>
+%_topdir /home/blutgens/rpmbuild
+%packager Ben Lutgens <blutgens@gmail.com>

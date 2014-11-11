@@ -5,11 +5,32 @@ export ivm="ucuxivm1 ucuxivm2 uchpuxt1"
 export dr="ucamdr1 ucoradr1"
 export uc4="ucuc4appd-v ucuc4appt-v ucuc4prd-v ucuc4dbp-p ucuc4dbt-v ucuc4dbd-v"
 export allhosts="$amisys $oracle $ivm $dr $uc4"
-
+export hpuxen="$amisys $ivm $dr $oracle"
 doall() {
-    for i in $allhosts ; do
-        ssh $i $2
-    done
+    if [ $# -ne 0 ] ; then
+        for i in $allhosts ; do
+            echo "============================================================"
+            echo "               $1@$i $2                                     "
+            ssh $1@$i $2
+            echo "============================================================"
+        done
+    else
+        echo "Usage: $0 [username] [command]"
+    fi
 }
+
+dohpux() {
+    if [ $# -ne 0 ] ; then
+        for i in $hpuxen ; do
+            echo "============================================================"
+            echo "               $1@$i $2                                     "
+            ssh $1@$i $2
+            echo "============================================================"
+        done
+    else
+        echo "Usage: $0 [username] [command]"
+    fi
+}
+
 
 # vim: set ft=sh ts=4 sw=4 tw=80 et :

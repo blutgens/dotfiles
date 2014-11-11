@@ -23,13 +23,15 @@ SSH ucoraicd1|gnome-terminal|-x ssh -X ucoraicd1
 SSH ucoraex1|gnome-terminal|-x ssh -X ucoraex1
 SSH ucoratx1|gnome-terminal|-x ssh -X ucoratx1
 label:SSH (Linux Servers)
-SSH sputnik|gnome-terminal|-x ssh -X sputnik
 SSH ucorafin|gnome-terminal|-x ssh -X ucorafin
-SSH ucuc4appd-v|gnome-terminal|-x ssh -X ucucappd-v
-SSH ucuc4appt-v|gnome-terminal|-x ssh -X ucucappt-v
+SSH ucuc4appd-v|gnome-terminal|-x ssh -X ucuc4appd-v
+SSH ucuc4appt-v|gnome-terminal|-x ssh -X ucuc4appt-v
 SSH ucuc4prd-v|gnome-terminal|-x ssh -X ucuc4prd-v
 SSH ucuc4dbd-p|gnome-terminal|-x ssh -X ucuc4dbd-p
 SSH ucuc4dbt-p|gnome-terminal|-x ssh -X ucuc4dbt-p
 SSH ucuc4dbp-p|gnome-terminal|-x ssh -X ucuc4dbp-p
+SSH ucamdr1|gnome-terminal|-x ssh -X ucamdr1
+SSH ucorafin|gnome-terminal|-x ssh ucorafin
+SSH ucoratst|gnome-terminal|-x ssh ucoratst
 #label:RDP connections
 

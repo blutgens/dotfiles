@@ -28,7 +28,7 @@ export SVN_EDITOR=${EDITOR}
 export PATH=~/bin:${PATH}:/sbin:/usr/sbin:
 #source ~/.bash_prompt
 export CDPATH=".:~"
-
+export TERM=xterm
 # GO Stuff
 export GOPATH=${HOME}/gocode
 export PATH=${PATH}:${GOPATH}/bin
@@ -36,7 +36,8 @@ if [ ! -d ${GOPATH} ] ; then
     mkdir -p ${GOPATH}/{bin,pkg,src}
 fi
 
-
+export JAVA_HOME=/usr/java/latest
+export JRE_HOME=${JAVA_HOME}
 
 # Keychain setup
 #if [ -f ~/.ssh/id_rsa ] ; then
@@ -47,6 +48,6 @@ fi
 #    . $HOME/.keychain/$HOSTNAME-sh-gpg
 #fi
 
-if [ -f ~/.liquidprompt/liquidprompt ]; then
-    source ~/.liquidprompt/liquidprompt
-fi
+#if [ -f ~/.liquidprompt/liquidprompt ]; then
+ #   source ~/.liquidprompt/liquidprompt
+#fi

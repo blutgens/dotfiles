@@ -1,3 +1,6 @@
+memstats() {
+    pgrep ${1} | xargs -rI{} grep -H VmHWM /proc/{}/status
+}
 
 numlines () {
     awk '{print NR": "$0 }' < $1

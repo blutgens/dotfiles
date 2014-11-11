@@ -9,6 +9,7 @@ imlib_cache_size 10
 alignment top_right
 gap_y 0
 minimum_size 268 620
+#minimum_size 248 900
 maximum_width 268
 own_window yes
 own_window_type normal  # other options are: override/dock/desktop/panel
@@ -94,7 +95,7 @@ ${color1}${alignr 52}${voffset 7}${execi 300 grep "yweather:wind" ~/.cache/weath
 \
 # Clock + calendar #
 \
-${voffset -105}${font Droid Sans Mono :size=11}${alignc}${color2}${pre_exec cat /etc/issue.net} $machine${font}${color}
+${voffset -105}${font Droid Sans Mono :size=10}${alignc}${color2}${pre_exec cat /etc/issue.net} $machine${font}${color}
 ${voffset 6}${font Droid Sans :size=10}${alignc}${color6}Kernel: ${kernel}${font}${color}
 \
 # Cpu, memory, uptime, and load graph #
@@ -172,7 +173,7 @@ ${voffset -318}${goto 40}${color5}Up: ${color2}${upspeed eth0}${color5}${goto 15
 ${voffset 10}${goto 40}${upspeedgraph eth0 26,80 FFFFFF FFFFFF}${goto 150}${downspeedgraph eth0 26,80 FFFFFF FFFFFF}
 ${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup eth0}${color5}${goto 150}Received: ${color2}${totaldown eth0}
 ${else}
-${if_existing /proc/net/route enp0s0}
+${if_existing /proc/net/route wlan0}
 ${voffset -331}${goto 40}${color5}Up: ${color2}${upspeed enp0s0}${color5}${goto 150}Down: ${color2}${downspeed enp0s0}
 ${voffset 10}${goto 40}${upspeedgraph enp0s0 26,80 FFFFFF FFFFFF}${goto 150}${downspeedgraph enp0s0 26,80 FFFFFF FFFFFF}
 ${voffset 9}${goto 40}${color5}Sent: ${color2}${totalup enp0s0}${color5}${goto 150}Received: ${color2}${totaldown enp0s0}

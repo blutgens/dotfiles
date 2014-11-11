@@ -1,7 +1,7 @@
 alias l='ls -alF'
 alias ll='ls -alF'
 alias la='ls -Fa'
-alias ld='ls -al -d * | egrep "^d"' # only subdirectories
+alias lld='ls -al -d * | egrep "^d"' # only subdirectories
 alias lt='ls -alt | head -20' # recently changed files
 alias watchtcp='watch -n 1 "sudo netstat -tpanl | grep ESTABLISHED"'
 alias rpmqa='rpm -qa --queryformat "%{NAME}-%{VERSION}.%{RELEASE} (%{ARCH})\n"'
