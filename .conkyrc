@@ -95,7 +95,7 @@ ${color1}${alignr 52}${voffset 7}${execi 300 grep "yweather:wind" ~/.cache/weath
 \
 # Clock + calendar #
 \
-${voffset -105}${font Droid Sans Mono :size=10}${alignc}${color2}${pre_exec cat /etc/issue.net} $machine${font}${color}
+${voffset -105}${font Droid Sans Mono :size=8}${alignc}${color2}${pre_exec cat /etc/issue.net} $machine${font}${color}
 ${voffset 6}${font Droid Sans :size=10}${alignc}${color6}Kernel: ${kernel}${font}${color}
 \
 # Cpu, memory, uptime, and load graph #

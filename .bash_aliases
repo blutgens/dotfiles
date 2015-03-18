@@ -39,10 +39,40 @@ alias base64enc='perl -MMIME::Base64 -e "print encode_base64(join(q(),<>),q())"'
 alias base64dec='perl -MMIME::Base64 -e "print decode_base64(join(q(),<>))"'
 alias pmver="perl -le '\$m = shift; eval qq(require \$m) or die qq(module \"\$m\" is not installed\\n); print \$m->VERSION'"
 
-
+ldap-search() {
+    ldapsearch -h mpls.ucare.pvt -D \
+        "CN=lutgensb,OU=Engineers,OU=Servers,DC=mpls,DC=ucare,DC=pvt" -W \
+        -b "dc=mpls,dc=ucare,dc=pvt" $1
+}
 
 alias nwm-res="sudo restart network-manager"
 # handy du
 alias dux='du -sk ./* | sort -n | awk '\''BEGIN{ pref[1]="K"; pref[2]="M"; pref[3]="G";} { total = total + $1; x = $1; y = 1; while( x > 1024 ) { x = (x + 1023)/1024; y++; } printf("%g%s\t%s\n",int(x*10)/10,pref[y],$2); } END { y = 1; while( total > 1024 ) { total = (total + 1023)/1024; y++; } printf("Total: %g%s\n",int(total*10)/10,pref[y]); }'\'''
 
-# vim:set ft=sh:
+
+lsof-du()
+{
+    lsof -ns | grep "\<REG\>.* (deleted)$" | \
+        awk '{a[$1]+=$7;b[$1]++;}END{for(i in a){printf\
+        ("%s %d %.2f MB\n", i,b[i],a[i]/1048576);}}' | \
+        column -t | sort -k3 -n
+}
+show-ami-luns() {
+    if [ $# -ne 1 ] ; then
+        echo "You need to supply a search string e.g. i10ctrl."
+    else
+        naviseccli -h 172.17.99.4 lun -list | awk -F" " "/Name:/ && /LUN/ && /${1}/ && /u0/"
+    fi
+}
+show-snap-session() {
+    if [ $# -ne 1 ] ; then
+        naviseccli -h 172.17.99.4 snapview -listsessions -all | \
+             awk -F":  " "/^Name/"'{print $2}' | sort
+    else
+        naviseccli -h 172.17.99.4 snapview -listsessions -all | \
+            awk -F":  " "/^Name/ && /${1}/"'{print $2}' | sort
+    fi
+}
+
+
+# vim:set ft=sh:set ts=4:set sw=4

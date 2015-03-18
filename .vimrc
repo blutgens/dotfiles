@@ -1,7 +1,7 @@
 if has("gui_running")
   " GUI is running or is about to start.
     set guifont=Monospace\ 9
-    colorscheme desert
+    colorscheme darkslategray
   set lines=48 columns=83
 endif
 

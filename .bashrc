@@ -38,7 +38,9 @@ fi
 
 export JAVA_HOME=/usr/java/latest
 export JRE_HOME=${JAVA_HOME}
-
+if [ -d /opt/Navisphere/bin ] ; then
+    export PATH=${PATH}:/opt/Navisphere/bin
+fi
 # Keychain setup
 #if [ -f ~/.ssh/id_rsa ] ; then
 #    keychain --nocolor -q id_rsa

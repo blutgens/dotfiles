@@ -1,5 +1,11 @@
 memstats() {
-    pgrep ${1} | xargs -rI{} grep -H VmHWM /proc/{}/status
+    PROCNAME=${1}
+    if [ ${PROCNAME} ] ; then
+        pgrep ${PROCNAME} | xargs -rI{} grep -H VmHWM /proc/{}/status
+    else
+        echo "You need to provide a search string, dummy."
+        echo 'FAIL!!!!'
+    fi
 }
 
 numlines () {

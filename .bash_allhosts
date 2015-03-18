@@ -1,12 +1,12 @@
-export amisys="ucamprd6 ucamdev6 ucamtrn6 ucamqa6 ucamicd1 ucamex1 ucamtx1"
-export oracle="ucoraprd6 ucoradev6 
-        ucoratrn6 ucoraqa6 ucoraicd1 ucoraex1 ucoratx1"
+export amisys="ucamprd6 ucamdev6 ucamtrn6 ucamqa6 ucamicd1 ucamex1 ucamtx1 ucamdev1"
+export mischp="ucuxign1"
+export oracle="ucoraprd6 ucoradev6 ucoratrn6 ucoraqa6 ucoraicd1 ucoraex1 ucoratx1 ucoraapp1"
 export ivm="ucuxivm1 ucuxivm2 uchpuxt1"
 export dr="ucamdr1 ucoradr1"
 export uc4="ucuc4appd-v ucuc4appt-v ucuc4prd-v ucuc4dbp-p ucuc4dbt-v ucuc4dbd-v"
-export allhosts="$amisys $oracle $ivm $dr $uc4"
-export hpuxen="$amisys $ivm $dr $oracle"
-doall() {
+export allhosts="$amisys $oracle $ivm $dr $uc4 $mischp"
+export hpuxen="$amisys $ivm $dr $oracle $mischp"
+do-on-all() {
     if [ $# -ne 0 ] ; then
         for i in $allhosts ; do
             echo "============================================================"
@@ -19,11 +19,11 @@ doall() {
     fi
 }
 
-dohpux() {
+do-on-hpux() {
     if [ $# -ne 0 ] ; then
         for i in $hpuxen ; do
             echo "============================================================"
-            echo "               $1@$i $2                                     "
+            echo "$1@$i $2"
             ssh $1@$i $2
             echo "============================================================"
         done
@@ -32,5 +32,21 @@ dohpux() {
     fi
 }
 
+do-to-all() {
+    for i in $allhosts ; do
+        echo "============================================================"
+        echo " $1 $i"
+        $1 $i
+        echo "============================================================"
+    done
+}
+do-to-hpux() {
+    for i in $hpuxen ; do
+        echo "============================================================"
+        echo " $1 $i"
+        $1 $i
+        echo "============================================================"
+    done
+}
 
 # vim: set ft=sh ts=4 sw=4 tw=80 et :
