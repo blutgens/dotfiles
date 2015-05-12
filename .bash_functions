@@ -73,4 +73,17 @@ function nwm-fix() {
 function pingdef() {
     ping $(ip route show |awk ' /^default/ {print $3}')
 }
+
+fileinfo() { 
+    RPMQF=$(rpm -qf $1); 
+    RPMQL=$(rpm -ql $RPMQF);
+    echo "man page:";
+    whatis $(basename $1); 
+    echo "Services:"; 
+    echo -e "$RPMQL\n"|grep -P "\.service";
+    echo "Config files:";
+    rpm -qc $RPMQF;
+    echo "Provided by:" $RPMQF; 
+}
+
 # vim:set ft=sh:

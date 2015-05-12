@@ -10,6 +10,7 @@ alias unix2dos="perl -i -pe 's/\r//g'"
 alias dos2unix="perl -i -pe 's/\n/\r\n/'"
 alias ssh="ssh -X -A -t"
 alias rsync="rsync -av --stats --progress"
+alias rdesktop="rdesktop -d uafp_domain -u lutgensb -a 16 -5 -g 1400x1024"
 alias myip="links -dump http://www.formyip.com/ | grep \"Your IP\" | \
     sed 's/^[ \t]*//'"
 if [ $(uname) == "Linux" ] ; then
@@ -27,6 +28,7 @@ if [ $(uname) == "Linux" ] ; then
     alias rm="rm -v"
     alias more='less'
     alias grep='grep --color'
+    alias mtrj='sudo mtr -s 1472 -B 0 -oLDRSWNBAWVJMXI'
 elif [ $(uname) == "SunOS" ] ; then
     alias ls="ls -F"
 fi
