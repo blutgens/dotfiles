@@ -25,7 +25,7 @@ export PAGER=less
 #alias man="PAGER='most -s' man"
 export EDITOR=vim
 export SVN_EDITOR=${EDITOR}
-export PATH=~/bin:${PATH}:/sbin:/usr/sbin:
+export PATH=~/bin:${PATH}:/sbin:/usr/sbin:/opt/Navisphere/bin/
 #source ~/.bash_prompt
 export CDPATH=".:~"
 export TERM=xterm

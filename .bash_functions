@@ -86,4 +86,96 @@ fileinfo() {
     echo "Provided by:" $RPMQF; 
 }
 
+lsof-du()
+{
+    lsof -ns | grep "\<REG\>.* (deleted)$" | \
+        awk '{a[$1]+=$7;b[$1]++;}END{for(i in a){printf\
+        ("%s %d %.2f MB\n", i,b[i],a[i]/1048576);}}' | \
+        column -t | sort -k3 -n
+}
+show-ami-luns() {
+    if [ $# -ne 1 ] ; then
+        echo "You need to supply a search string e.g. i10ctrl."
+    else
+        naviseccli -h 172.17.99.4 lun -list | awk -F" " "/Name:/ && /LUN/ && /${1}/"
+    fi
+}
+
+show-ami-lun-verbose() {
+    if [ $# -ne 1 ] ; then
+        echo "Please specify lun number"
+    else
+        naviseccli -h 172.17.99.4 lun -list -l ${1}
+    fi
+}
+
+show-snap-session() {
+    if [ $# -ne 1 ] ; then
+        naviseccli -h 172.17.99.4 snapview -listsessions -all | \
+             awk -F":  " "/^Name/"'{print $2}' | sort
+    else
+        naviseccli -h 172.17.99.4 snapview -listsessions -all | \
+            awk -F":  " "/^Name/ && /${1}/"'{print $2}' | sort
+    fi
+}
+
+start-snap-session() {
+    echo -n "Enter in the session name: "
+    read SESSION
+    echo -n "Enter in a space separated list of luns: "
+    read LUNS
+    
+     /opt/Navisphere/bin/naviseccli -h 172.17.99.4 snapview \
+         -startsession ${SESSION} \
+         -lun ${LUNS}
+
+}
+
+stop-snap-session() {
+    if [ $# -ne 1 ]; then
+        echo -n "Enter in the session name: "
+        read SESSION
+    else
+        SESSION=${1}
+     /opt/Navisphere/bin/naviseccli -h 172.17.99.4 snapview \
+         -stopsession ${SESSION}
+
+    fi
+
+}
+
+
+grow-vnx-lun() {
+    if [ $# -ne 2 ] ; then
+        echo "Enter a Lun number and a size in gigabytes to proceed"
+    else
+        naviseccli -h 172.17.99.4 lun -expand -l $1 -capacity $2 -sq gb
+    fi
+}
+
+show-vnx-pool-names() {
+    naviseccli -h 172.17.99.4 storagepool -list | awk -F ": " "/Pool Name/"'{print $2}'
+}
+
+show-vnx-pool-ids() {
+    for i in `show-vnx-pool-names` ; do
+        echo $i
+    done
+}
+
+
+show-vnx-pool-free() {
+    NAME=${1}
+    echo ${NAME}
+    naviseccli -h 172.17.99.4 storagepool -list -name  \'${NAME}\"
+}
+
+ldap-search() {
+    ldapsearch -h mpls.ucare.pvt -D \
+        "CN=lutgensb,OU=Engineers,OU=Servers,DC=mpls,DC=ucare,DC=pvt" -W \
+        -b "dc=mpls,dc=ucare,dc=pvt" $1
+}
+
+
+
 # vim:set ft=sh:
