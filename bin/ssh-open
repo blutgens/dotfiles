@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+
+($protocol,$host) = split /:\/\//, $ARGV[0];
+($host,$port) = split /:/, $host;
+ 
+# validate input
+if ( $protocol !~ /^(telnet|ssh)$/ || $host !~ /^[a-zA-Z0-9.-]+$/ || $port !~
+/(^[a-zA-Z0-9_-]+$|^$)/ ) {
+        warn "Invalid URL";
+        exit 1;
+}
+ 
+# if SSH, add -p argument
+if ( $protocol eq "ssh" && $port != '' ) { $port = "-p $port" ; }
+ 
+# call terminal emulator
+exec("gnome-terminal -e '$protocol $host $port'");
+exit;
