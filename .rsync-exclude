@@ -1,2 +1,5 @@
 .cache
+.mozilla
+.tmp
+.config/google-chrome
 

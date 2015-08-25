@@ -1,3 +1,8 @@
+backup-home(){
+    rsync -auv  --delete-excluded --exclude-from=.rsync-exclude \
+        --delete --progress --stats /home/blutgens ${1}
+}
+
 memstats() {
     PROCNAME=${1}
     if [ ${PROCNAME} ] ; then
