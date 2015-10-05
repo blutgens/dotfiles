@@ -44,7 +44,9 @@ set modelines=3
 set visualbell
 syntax on
 set shortmess=Iat
-so $VIMRUNTIME/menu.vim
+if !empty(glob("$VIMRUNTIME/menu.vim"))
+    so $VIMRUNTIME/menu.vim
+endif
 set background=dark
 set report=0
 set laststatus=2
