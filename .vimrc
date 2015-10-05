@@ -8,7 +8,7 @@ endif
 
 if &term =~ "xterm"
 	set t_Co=256
-    colorscheme flattr
+    colorscheme coffee
 endif
 if &term =~ "linux"
 	unset t_Co
@@ -44,9 +44,11 @@ set modelines=3
 set visualbell
 syntax on
 set shortmess=Iat
+" in case this doesn't exist, don't load it. 
 if !empty(glob("$VIMRUNTIME/menu.vim"))
     so $VIMRUNTIME/menu.vim
 endif
+
 set background=dark
 set report=0
 set laststatus=2
