@@ -3,3 +3,5 @@
 	name = blutgens
 [push]
 	default = simple
+[credential "https://github.com"]
+    username = blutgens
