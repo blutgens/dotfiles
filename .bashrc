@@ -35,6 +35,7 @@ export PATH=${PATH}:${GOPATH}/bin
 if [ ! -d ${GOPATH} ] ; then
     mkdir -p ${GOPATH}/{bin,pkg,src}
 fi
+export MAN_POSIXLY_CORRECT=true
 
 export JAVA_HOME=/usr/java/latest
 export JRE_HOME=${JAVA_HOME}

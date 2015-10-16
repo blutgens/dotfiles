@@ -3,6 +3,10 @@ backup-home(){
         --delete --progress --stats /home/blutgens ${1}
 }
 
+qf2s(){
+    rpm -ql $(rpm -qf $1)|grep -P "\.service";
+}
+
 memstats() {
     PROCNAME=${1}
     if [ ${PROCNAME} ] ; then
