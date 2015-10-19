@@ -1,18 +1,18 @@
 if has("gui_running")
   " GUI is running or is about to start.
-    set guifont=xos4\ Terminus\ 10
-    colorscheme badwolf
+    set guifont=Terminus\ 10
+    colorscheme flattr
   set lines=48 columns=90
 endif
 
 
 if &term =~ "xterm"
 	set t_Co=256
-    colorscheme badwolf
+    colorscheme flattr
 endif
 if &term =~ "linux"
 	unset t_Co
-	colorscheme badwolf
+	colorscheme flattr
 endif
 
 "
