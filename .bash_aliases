@@ -5,6 +5,9 @@ alias lld='ls -al -d * | egrep "^d"' # only subdirectories
 alias lt='ls -alt | head -20' # recently changed files
 alias watchtcp='watch -n 1 "sudo netstat -tpanl | grep ESTABLISHED"'
 alias rpmqa='rpm -qa --queryformat "%{NAME}-%{VERSION}.%{RELEASE} (%{ARCH})\n"'
+
+# Shows top 5 memory users
+alias memusers='ps -eo pmem,pcpu,vsize,pid,cmd | sort -k 1 -nr | head -5'
 export TODAY=$(date +%d-%b-%Y)
 alias unix2dos="perl -i -pe 's/\r//g'"
 alias dos2unix="perl -i -pe 's/\n/\r\n/'"

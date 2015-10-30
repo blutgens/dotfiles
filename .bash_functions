@@ -1,3 +1,21 @@
+push-key() {
+    ssh-copy-id -i ~/.ssh/id_rsa.pub $1
+}
+push-configs() {
+    scp dotfiles/.{du-excludes,rpmmacros} $1:
+    scp dotfiles/.profile-cp $1:.profile
+}
+
+push-all(){
+    SERVER=${1}
+    push-key ${SERVER}
+    push-configs $SERVER
+}
+
+zombie() {
+    ps aux | awk '$8=="Z" { print $2 }'
+}
+
 backup-home(){
     rsync -auv  --delete-excluded --exclude-from=.rsync-exclude \
         --delete --progress --stats /home/blutgens ${1}

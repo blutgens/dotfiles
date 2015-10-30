@@ -15,15 +15,7 @@ if &term =~ "linux"
 	colorscheme flattr
 endif
 
-"
-"------------------------------------------------------------------------
-" Use of dictionaries
-"------------------------------------------------------------------------
 set complete+=k         " scan the files given with the 'dictionary' option
-"
-"------------------------------------------------------------------------
-" Various settings
-"------------------------------------------------------------------------
 set cursorline
 set noai
 set ruler
@@ -48,7 +40,7 @@ set shortmess=Iat
 if !empty(glob("$VIMRUNTIME/menu.vim"))
     so $VIMRUNTIME/menu.vim
 endif
-
+execute pathogen#infect()
 set background=dark
 set report=0
 set laststatus=2
@@ -57,7 +49,7 @@ set foldcolumn=0
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
-set statusline=%t\ %y\ format:\ %{&ff};\ [%c,%l]
+set statusline=%t\ %y\ format:\ %{&ff};\ [%c,%l]----%{fugitive#statusline()}
 set backspace=2
 let loaded_matchparen = 1
 filetype plugin indent on
