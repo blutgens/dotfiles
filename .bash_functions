@@ -4,6 +4,9 @@ push-key() {
 push-configs() {
     scp dotfiles/.{du-excludes,rpmmacros} $1:
     scp dotfiles/.profile-cp $1:.profile
+    rsync -a --exclude=.git --exclude=.conky* --exclude=*private* \
+        dotfiles  $1:
+    ssh $1 ln -sf ~/dotfiles/.bash* .
 }
 
 push-all(){

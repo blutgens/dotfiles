@@ -12,5 +12,5 @@ set timeout -1
 spawn bin/rdprun.sh
 match_max 100000
 expect -exact "Password: "
-send -- "!foS5ieth\r"
+send -- "<sanitized>\r"
 expect eof
