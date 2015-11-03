@@ -14,7 +14,7 @@ if [[ $- != *i* ]] ; then #not interactive... don't need this file then
     return
 fi
 stty -ixon # disables ^s and ^q because they suck
-set -o noclobber
+set +o noclobber
 shopt -s checkwinsize
 shopt -s histappend 
 shopt -s cdspell

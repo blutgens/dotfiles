@@ -44,12 +44,6 @@ alias base64enc='perl -MMIME::Base64 -e "print encode_base64(join(q(),<>),q())"'
 alias base64dec='perl -MMIME::Base64 -e "print decode_base64(join(q(),<>))"'
 alias pmver="perl -le '\$m = shift; eval qq(require \$m) or die qq(module \"\$m\" is not installed\\n); print \$m->VERSION'"
 
-ldap-search() {
-    ldapsearch -h mpls.ucare.pvt -D \
-        "CN=lutgensb,OU=Engineers,OU=Servers,DC=mpls,DC=ucare,DC=pvt" -W \
-        -b "dc=mpls,dc=ucare,dc=pvt" $1
-}
-
 alias nwm-res="sudo restart network-manager"
 # handy du
 alias dux='du -sk ./* | sort -n | awk '\''BEGIN{ pref[1]="K"; pref[2]="M"; pref[3]="G";} { total = total + $1; x = $1; y = 1; while( x > 1024 ) { x = (x + 1023)/1024; y++; } printf("%g%s\t%s\n",int(x*10)/10,pref[y],$2); } END { y = 1; while( total > 1024 ) { total = (total + 1023)/1024; y++; } printf("Total: %g%s\n",int(total*10)/10,pref[y]); }'\'''

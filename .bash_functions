@@ -198,9 +198,9 @@ show-vnx-pool-free() {
 }
 
 ldap-search() {
-    ldapsearch -h mpls.ucare.pvt -D \
-        "CN=lutgensb,OU=Engineers,OU=Servers,DC=mpls,DC=ucare,DC=pvt" -W \
-        -b "dc=mpls,dc=ucare,dc=pvt" $1
+    ldapsearch -h cpr.ca -D \
+        "CN=Benjamin Lutgens,OU=Users,OU=EDS,DC=cpr,DC=ca" -W \
+        -b "dc=cpr,dc=ca" $1
 }
 
 
