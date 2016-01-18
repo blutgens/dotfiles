@@ -15,6 +15,10 @@ push-all(){
     push-configs $SERVER
 }
 
+setWindowTitle(){
+    echo -ne "\e]2;$*\a"
+}
+
 zombie() {
     ps aux | awk '$8=="Z" { print $2 }'
 }

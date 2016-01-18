@@ -1,37 +1,11 @@
 # this is a comment
 label:Commands
-Terminator|terminator|-l multi
+Terminator|terminator|-l quad
 Gnome Terminal|gnome-terminal|
-label:SSH (HP-UX App Servers)
-SSH ucamprd6|gnome-terminal|-x ssh -X ucamprd6
-SSH ucamqa6|gnome-terminal|-x ssh -X ucamqa6
-SSH ucamdev6|gnome-terminal|-x ssh -X ucamdev6
-SSH ucamtrn6|gnome-terminal|-x ssh -X ucamtrn6
-SSH ucamicd1|gnome-terminal|-x ssh -X ucamicd1
-SSH ucamex1|gnome-terminal|-x ssh -X ucamex1
-SSH ucamtx1|gnome-terminal|-x ssh -X ucamtx1
-SSH ucuxign1|gnome-terminal|-x ssh -X ucuxign1
-label:SSH (IVM Hosts)
-SSH ucuxivm1|gnome-terminal|-x ssh -X ucuxivm1
-SSH ucuxivm2|gnome-terminal|-x ssh -X ucuxivm2
-label:SSH (HP-UX DB Servers)
-SSH ucoraprd6|gnome-terminal|-x ssh -X ucoraprd6
-SSH ucoraqa6|gnome-terminal|-x ssh -X ucoraqa6
-SSH ucoradev6|gnome-terminal|-x ssh -X ucoradev6
-SSH ucoratrn6|gnome-terminal|-x ssh -X ucoratrn6
-SSH ucoraicd1|gnome-terminal|-x ssh -X ucoraicd1
-SSH ucoraex1|gnome-terminal|-x ssh -X ucoraex1
-SSH ucoratx1|gnome-terminal|-x ssh -X ucoratx1
+htop|gnome-terminal|-x htop 
 label:SSH (Linux Servers)
-SSH ucorafin|gnome-terminal|-x ssh -X ucorafin
-SSH ucuc4appd-v|gnome-terminal|-x ssh -X ucuc4appd-v
-SSH ucuc4appt-v|gnome-terminal|-x ssh -X ucuc4appt-v
-SSH ucuc4prd-v|gnome-terminal|-x ssh -X ucuc4prd-v
-SSH ucuc4dbd-p|gnome-terminal|-x ssh -X ucuc4dbd-p
-SSH ucuc4dbt-p|gnome-terminal|-x ssh -X ucuc4dbt-p
-SSH ucuc4dbp-p|gnome-terminal|-x ssh -X ucuc4dbp-p
-SSH ucamdr1|gnome-terminal|-x ssh -X ucamdr1
-SSH ucorafin|gnome-terminal|-x ssh ucorafin
-SSH ucoratst|gnome-terminal|-x ssh ucoratst
+SSH ldcsrun1|gnome-terminal|-x ssh ldcsrun1
+SSH lsmss0001|gnome-terminal|-x ssh root@lsmss0001
+SSH lsmss0002|gnome-terminal|-x ssh root@lsmss0002
 #label:RDP connections
 

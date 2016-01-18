@@ -62,6 +62,9 @@ map <silent>,k <C-w>k
 map <silent>,l <C-w>l
 
 au FileType py set textwidth=79 " PEP-8 Friendly
+au BufRead,BufNewFile ~/ansible-plays/*.yml set ft=ansible
+let g:ansible_options = {'ignore_blank_lines': 0,'{documentation_mapping': '<C-K>'}
+
 
 
 "------------------------------------------------------------------------
