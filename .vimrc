@@ -1,18 +1,14 @@
 if has("gui_running")
   " GUI is running or is about to start.
     set guifont=Terminus\ 10
-    colorscheme asu1dark
+    colorscheme blackbeauty
   set lines=48 columns=90
-endif
-
-
-if &term =~ "xterm"
+elseif &term =~ "xterm"
 	set t_Co=256
     colorscheme flattr
-endif
-if &term =~ "linux"
+elseif &term =~ "linux"
 	unset t_Co
-	colorscheme flattr
+	colorscheme darkslategrey
 endif
 
 set complete+=k         " scan the files given with the 'dictionary' option
@@ -49,7 +45,22 @@ set foldcolumn=0
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
-set statusline=%t\ %y\ format:\ %{&ff};\ [%c,%l]----%{fugitive#statusline()}
+"set statusline=%t\ %y\ format:\ %{&ff};\ [%c,%l]----%{fugitive#statusline()}
+set statusline=%t\ %y\ fmt:\ %{&ff};\ [%c,%l]
+
+" Include Git info on statusline if fugitive is present
+set statusline+=--%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+"set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 set backspace=2
 let loaded_matchparen = 1
 filetype plugin indent on
@@ -85,7 +96,7 @@ autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
 "
 noremap <F5> <ESC>:w<CR>:silent execute "!python %"<CR><CR>
 
-au BufEnter *.py if getline(1) == "" | :call setline(1, "#!/usr/bin/env python") | endif
+"au BufEnter *.py if getline(1) == "" | :call setline(1, "#!/usr/bin/env python") | endif
 " Automatically chmod +x Shell and Perl scripts
 au BufWritePost   *.sh              silent !chmod +x %
 au BufWritePost   *.pl              silent !chmod +x %
