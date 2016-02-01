@@ -7,7 +7,6 @@ fi
 source ~/.bash_aliases
 source ~/.bash_functions
 source ~/.bash_prompt
-source ~/.bash_allhosts
 
 # User specific aliases and functions
 if [[ $- != *i* ]] ; then #not interactive... don't need this file then
