@@ -24,9 +24,12 @@ export PAGER=less
 #alias man="PAGER='most -s' man"
 export EDITOR=vim
 export SVN_EDITOR=${EDITOR}
-export PATH=~/bin:${PATH}:/sbin:/usr/sbin:/opt/Navisphere/bin/
-#source ~/.bash_prompt
+export PATH=~/bin:${PATH}:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+if [ -d /opt/Navisphere/bin/ ] ; then
+    export PATH=${PATH}:/opt/Navisphere/bin
+fi
 export CDPATH=".:~"
+
 export TERM=xterm
 # GO Stuff
 export GOPATH=${HOME}/gocode
