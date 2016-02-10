@@ -1,11 +1,11 @@
 if has("gui_running")
   " GUI is running or is about to start.
     set guifont=Terminus\ 10
-    colorscheme blackbeauty
+    colorscheme badwolf
   set lines=48 columns=90
 elseif &term =~ "xterm"
 	set t_Co=256
-    colorscheme flattr
+    colorscheme badwolf
 elseif &term =~ "linux"
 	unset t_Co
 	colorscheme darkslategrey
@@ -52,9 +52,16 @@ set statusline=%t\ %y\ fmt:\ %{&ff};\ [%c,%l]
 set statusline+=--%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 "set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+map <F4> :NERDTreeToggle<CR>
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+noremap <F3> :set invnumber<CR>
+noremap <F3> <C-O>:set invnumber<CR>
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -94,7 +101,7 @@ set number
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
 "
-noremap <F5> <ESC>:w<CR>:silent execute "!python %"<CR><CR>
+"noremap <F5> <ESC>:w<CR>:silent execute "!python %"<CR><CR>
 
 "au BufEnter *.py if getline(1) == "" | :call setline(1, "#!/usr/bin/env python") | endif
 " Automatically chmod +x Shell and Perl scripts
