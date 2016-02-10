@@ -7,7 +7,6 @@ fi
 source ~/.bash_aliases
 source ~/.bash_functions
 source ~/.bash_prompt
-source ~/.bash_allhosts
 
 # User specific aliases and functions
 if [[ $- != *i* ]] ; then #not interactive... don't need this file then
@@ -46,13 +45,13 @@ fi
 export CFLAGS="-Wall"
 
 # Keychain setup
-#if [ -f ~/.ssh/id_rsa ] ; then
-#    keychain --nocolor -q id_rsa
-#    [ -f $HOME/.keychain/$HOSTNAME-sh ] && \
-#    . $HOME/.keychain/$HOSTNAME-sh
-#    [ -f $HOME/.keychain/$HOSTNAME-sh-gpg ] && \
-#    . $HOME/.keychain/$HOSTNAME-sh-gpg
-#fi
+if [ -f ~/.ssh/id_rsa ] ; then
+    keychain --nocolor -q id_rsa
+    [ -f $HOME/.keychain/$HOSTNAME-sh ] && \
+    . $HOME/.keychain/$HOSTNAME-sh
+    [ -f $HOME/.keychain/$HOSTNAME-sh-gpg ] && \
+    . $HOME/.keychain/$HOSTNAME-sh-gpg
+fi
 
 #if [ -f ~/.liquidprompt/liquidprompt ]; then
  #   source ~/.liquidprompt/liquidprompt
