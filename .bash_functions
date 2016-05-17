@@ -209,7 +209,9 @@ ldap-search() {
         "CN=Benjamin Lutgens,OU=Users,OU=EDS,DC=cpr,DC=ca" -W \
         -b "dc=cpr,dc=ca" $1
 }
-
-
+runsigar() {
+    /opt/epops-agent-6.2.0/bundles/agent-x86-64-linux-6.2.0/jre/bin/java \
+        -jar sigar-1.6.6.13.jar
+}
 
 # vim:set ft=sh:

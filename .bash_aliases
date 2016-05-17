@@ -1,4 +1,5 @@
 alias l='ls -alF'
+alias wtfis="~/linux-tools/wtfis"
 alias ll='ls -alF'
 alias la='ls -Fa'
 alias lld='ls -al -d * | egrep "^d"' # only subdirectories
@@ -9,7 +10,8 @@ alias to-lower="tr [:upper:] [:lower:]"
 # Shows top 5 memory users
 alias memusers='ps -eo pmem,pcpu,vsize,pid,cmd | sort -k 1 -nr | head -5'
 export TODAY=$(date +%d-%b-%Y)
-alias unix2dos="perl -i -pe 's/\r//g'"
+#alias unix2dos="perl -i -pe 's/\r//g'"
+alias unix2dos="recode latin1..ibmpc $*"
 alias dos2unix="perl -i -pe 's/\n/\r\n/'"
 alias ssh="ssh -X -A -t"
 alias rsync="rsync -av --stats --progress"
@@ -53,6 +55,6 @@ if [ -x ~/google-cli/googler ] ; then
     alias g='~/google-cli/googler -n 4 -l en -c en'
 fi
 
-
+alias apb=ansible-playbook
 
 # vim:set ft=sh:set ts=4:set sw=4

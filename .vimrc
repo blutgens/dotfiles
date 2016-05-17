@@ -2,13 +2,13 @@ if has("gui_running")
   " GUI is running or is about to start.
     set guifont=Terminus\ 10
     colorscheme badwolf
-  set lines=48 columns=90
+  set lines=72 columns=140
 elseif &term =~ "xterm"
 	set t_Co=256
     colorscheme badwolf
 elseif &term =~ "linux"
 	unset t_Co
-	colorscheme darkslategrey
+	colorscheme badwolf
 endif
 
 set complete+=k         " scan the files given with the 'dictionary' option
@@ -51,17 +51,22 @@ set statusline=%t\ %y\ fmt:\ %{&ff};\ [%c,%l]
 " Include Git info on statusline if fugitive is present
 set statusline+=--%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 "set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+"
+autocmd Filetype gitcommit setlocal spell textwidth=72
 
-"autocmd StdinReadPre * let s:std_in=1
+autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <F4> :NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-noremap <F3> :set invnumber<CR>
-noremap <F3> <C-O>:set invnumber<CR>
+noremap <F6> :set invnumber<CR>
+noremap <F6> <C-O>:set invnumber<CR>
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
