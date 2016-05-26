@@ -48,12 +48,15 @@ fi
 export CFLAGS="-Wall"
 
 # Keychain setup
-if [ -f ~/.ssh/id_rsa ] ; then
-    keychain --nocolor -q id_rsa
-    [ -f $HOME/.keychain/$HOSTNAME-sh ] && \
-    . $HOME/.keychain/$HOSTNAME-sh
-    [ -f $HOME/.keychain/$HOSTNAME-sh-gpg ] && \
-    . $HOME/.keychain/$HOSTNAME-sh-gpg
+if [ ${HOSTNAME} = "ldcsrun1" ] ; then
+
+    if [ -f ~/.ssh/id_rsa ] ; then
+        keychain --nocolor -q id_rsa
+        [ -f $HOME/.keychain/$HOSTNAME-sh ] && \
+        . $HOME/.keychain/$HOSTNAME-sh
+        [ -f $HOME/.keychain/$HOSTNAME-sh-gpg ] && \
+        . $HOME/.keychain/$HOSTNAME-sh-gpg
+    fi
 fi
 
 #if [ -f ~/.liquidprompt/liquidprompt ]; then
