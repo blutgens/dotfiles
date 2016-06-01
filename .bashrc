@@ -59,6 +59,6 @@ if [ ${HOSTNAME} = "ldcsrun1" ] ; then
     fi
 fi
 
-#if [ -f ~/.liquidprompt/liquidprompt ]; then
- #   source ~/.liquidprompt/liquidprompt
-#fi
+if [ -x ~/bin/vcprompt ]; then
+    export PS1='\u@\h:\w $(vcprompt):\$ '
+fi
