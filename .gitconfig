@@ -1,11 +1,1 @@
-[user]
-	email = blutgens+gh@gmail.com
-	name = blutgens
-[push]
-	default = simple
-[credential "https://github.com"]
-    username = blutgens
-
-[credential "gitlab@git.vdc.cpr.ca"]
-    email = benjamin_lutgens@cpr.ca
-    username = lut0023
+/home/lut0023/dotfiles/.gitconfig

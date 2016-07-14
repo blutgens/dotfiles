@@ -1,3 +1,1 @@
-%_query_all_fmt %%{name}-%%{version}-%%{release}.%%{arch}
-%_topdir /home/blutgens/rpmbuild
-%packager Ben Lutgens <blutgens@gmail.com>
+/home/lut0023/dotfiles/.rpmmacros

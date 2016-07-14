@@ -1,6 +1,0 @@
-#!/bin/bash
-
-cd ~
-tar -cvvzf 3m-spyux-1.4.tar.gz --exclude CVS 3m-spyux-1.4
-mv -v 3m-spyux-1.4.tar.gz ~/packages/SOURCES
-
