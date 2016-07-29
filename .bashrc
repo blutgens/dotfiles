@@ -7,7 +7,9 @@ fi
 source ~/.bash_aliases
 source ~/.bash_functions
 source ~/.bash_prompt
-
+if [ $(hostname -s) != "LDCSRUN1" ] ; then
+    source ~/.bash_ansible
+fi
 # User specific aliases and functions
 if [[ $- != *i* ]] ; then #not interactive... don't need this file then
     return

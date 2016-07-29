@@ -1,0 +1,7 @@
+#!/bin/bash
+export PATH=${PATH}:/home/lut0023/ansible/bin
+export PYTHONPATH=${PYTHONPATH}:/home/lut0023/ansible/lib:
+export MANPATH=${MANPATH}:/home/lut0023/ansible/docs/man:
+export ANSIBLE_INVENTORY=~/ansible-plays/inventory/
+
+# vim: set ft=sh
