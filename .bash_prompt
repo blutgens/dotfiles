@@ -1,1 +1,4 @@
-/home/lut0023/dotfiles/.bash_prompt
+source ~/.colors
+FANCY="\342\226\270"
+export PS1="\[$ICyan\]\u@\h:\[$IWhite\] \w \[$Yellow\]$FANCY \[$Color_Off\]"
+# vim:set ft=sh

@@ -1,1 +1,5 @@
-/home/lut0023/dotfiles/.rsync-exclude
+.cache
+.mozilla
+.tmp
+.config/google-chrome
+

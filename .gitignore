@@ -1,1 +1,7 @@
-/home/lut0023/dotfiles/.gitignore
+.ssh/known_hosts
+*.pyc
+.ssh/id_rsa
+.vim/.netrwhist
+*.swp
+.vim/backup
+bin/private-*

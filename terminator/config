@@ -1,0 +1,121 @@
+[global_config]
+  enabled_plugins = ActivityWatch,
+  focus = mouse
+  suppress_multiple_term_dialog = True
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+  [[ansible]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 88cd7149-e660-4213-970f-e623c9dc2b87
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 625:76
+      size = 1360, 1173
+      title = /bin/bash
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 775
+      ratio = 0.663256606991
+      type = VPaned
+    [[[child3]]]
+      order = 1
+      parent = child1
+      position = 677
+      ratio = 0.5
+      type = HPaned
+    [[[terminal2]]]
+      command = ssh ldcsrun1
+      order = 0
+      parent = child1
+      profile = default
+      title = ansible
+      type = Terminal
+      uuid = 88cd7149-e660-4213-970f-e623c9dc2b87
+    [[[terminal4]]]
+      order = 0
+      parent = child3
+      profile = default
+      type = Terminal
+      uuid = 0e3f98e8-65d8-4297-8776-b75c39409051
+    [[[terminal5]]]
+      order = 1
+      parent = child3
+      profile = default
+      type = Terminal
+      uuid = 2c70f375-e162-4023-8c5c-ddfa732b1897
+  [[quad]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = a3e147e1-2c96-4094-bc5e-443834707768
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 775:24
+      size = 1367, 774
+      title = /bin/bash
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 681
+      ratio = 0.500365764448
+      type = HPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 384
+      ratio = 0.5
+      type = VPaned
+    [[[child5]]]
+      order = 1
+      parent = child1
+      position = 384
+      ratio = 0.5
+      type = VPaned
+    [[[terminal3]]]
+      command = ssh ldcsrun1
+      order = 0
+      parent = child2
+      profile = default
+      title = ldcsrun1
+      type = Terminal
+      uuid = a3e147e1-2c96-4094-bc5e-443834707768
+    [[[terminal4]]]
+      order = 1
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = 89eb10c2-6d3f-41de-b2c7-242e27523dd2
+    [[[terminal6]]]
+      order = 0
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = 7eed9531-a7c3-4c50-9299-5fc5d2c3278b
+    [[[terminal7]]]
+      order = 1
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = 7e641a2c-f69c-4c91-86d0-dfc0141d4764
+[plugins]
+[profiles]
+  [[default]]
+    background_image = None
+    cursor_color = "#aaaaaa"
+    foreground_color = "#ffffff"
+    palette = "#000000:#ff1c1c:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#000000:#ff1c1c:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
+    scrollback_lines = 10000

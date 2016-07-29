@@ -1,1 +1,2 @@
-/home/lut0023/dotfiles/.Xmodmap
+remove Lock = Caps_Lock
+keysym Caps_Lock = Shift_L

@@ -1,1 +1,11 @@
-/home/lut0023/dotfiles/.sshplus
+# this is a comment
+label:Commands
+Terminator|terminator|-l quad
+Gnome Terminal|gnome-terminal|
+htop|gnome-terminal|-x htop 
+label:SSH (Linux Servers)
+SSH ldcsrun1|gnome-terminal|-x ssh ldcsrun1
+SSH lsmss0001|gnome-terminal|-x ssh root@lsmss0001
+SSH lsmss0002|gnome-terminal|-x ssh root@lsmss0002
+#label:RDP connections
+

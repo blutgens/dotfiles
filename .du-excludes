@@ -1,1 +1,3 @@
-/home/lut0023/dotfiles/.du-excludes
+proc
+sys
+run
