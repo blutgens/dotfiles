@@ -1,4 +1,5 @@
 alias l='ls -alF'
+alias set_title=`echo -e "\e]0;$(hostname -s)\a"`
 alias wtfis="~/linux-tools/wtfis"
 alias ll='ls -alF'
 alias la='ls -Fa'
